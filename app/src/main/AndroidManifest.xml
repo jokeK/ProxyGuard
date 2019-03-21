@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mik.mikdex">
+
+    <application
+        android:name="com.mik.proxy.guard.core.ProxyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- 为了我们之后的替换 (真实的Application全类名) -->
+        <meta-data android:name="app_name" android:value="com.mik.mikdex.MyApplication"/>
+        <!-- 一个版本标识 用于dex解密后的目录名 -->
+        <meta-data android:name="app_version" android:value="\1.0"/>
+
+        <activity android:name="com.mik.mikdex.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.mik.mikdex.MyService" />
+
+        <receiver android:name="com.mik.mikdex.MyBroadCastReciver">
+            <intent-filter>
+                <action android:name="com.mik.broadcast.test" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.mik.mikdex.MyProvider"
+            android:authorities="com.mik.myprovider" />
+
+    </application>
+
+</manifest>
